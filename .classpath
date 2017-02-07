@@ -2,8 +2,9 @@
 <classpath>
 	<classpathentry kind="src" path="src/main/java"/>
 	<classpathentry excluding="src/main/resources/$env/cas/|**cas/*|**/cas/*" kind="src" path="src/main/resources/dev"/>
+	<classpathentry kind="src" path="src/main/resources/online"/>
+	<classpathentry kind="src" path="src/main/resources/test"/>
 	<classpathentry excluding="src/main/resources/$env/cas/|**cas/*|**/cas/*" kind="src" path="src/main/resources/public"/>
-	<classpathentry kind="src" path="src/test/java"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8/"/>
 	<classpathentry exported="true" kind="con" path="org.springsource.ide.eclipse.gradle.classpathcontainer">
 		<attributes>

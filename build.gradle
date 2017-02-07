@@ -131,32 +131,5 @@ war {
     //webXml = file( 'src/main/resources/$env/cas/web.xml')// copies a file to WEB-INF/web.xml
 }
 
-task tomcatDebug {
-   // Create a new task tomcatDebug, add a description and add it to the same group as tomcatRun
-   description "Starting Tomcat with debugger enabled on port 8787."
-   group "web application"
-} << {
- 
-   org.gradle.tooling.ProjectConnection conn = org.gradle.tooling.GradleConnector.newConnector()
-      .forProjectDirectory(new File("."))
-      .connect();
- 
-   try {
- 
-      org.gradle.tooling.model.build.BuildEnvironment envTask = conn.getModel(org.gradle.tooling.model.build.BuildEnvironment.class)
-      org.gradle.tooling.BuildLauncher build = conn.newBuild();
-  
-      //build.forTasks("tomcatRunWar")
-      // Enable debug via jvm arguments and append JVM arguments of the currently running vm (except -D).
-      build.setJvmArguments("-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8899", *envTask.java.jvmArguments)
- 
-      // Run tomcatRun in the new JVM with debug parameters
-      build.run()
- 
-   } finally {
-      conn.close();
-   }
-}
-
 tomcatRun.contextPath = '/GradleProject'
 tomcatRunWar.contextPath = '/GradleProject'
